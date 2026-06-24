@@ -1,7 +1,8 @@
 <?php
 /**
- * @copyright Copyright (c) DotCommerce
- * @license   Open Software License 3.0 (OSL-3.0)
+ * @author    Mudassar Iqbal <miqbal@dotcommerce.co>
+ * @copyright Copyright (c) Dot Commerce
+ * @license   MIT
  */
 
 declare(strict_types=1);

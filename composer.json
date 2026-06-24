@@ -2,7 +2,13 @@
     "name": "dot-commerce/magento2-cron-scheduler",
     "description": "Cron Scheduler for Magento 2",
     "type": "magento2-module",
-    "license": "OSL-3.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mudassar Iqbal",
+            "email": "miqbal@dotcommerce.co"
+        }
+    ],
     "require": {
         "php": "~8.1.0||~8.2.0||~8.3.0||~8.4.0"
     },
