@@ -11,7 +11,6 @@ namespace DotCommerce\CronScheduler\Model;
 
 use DotCommerce\CronScheduler\Api\Data\JobInterface;
 use DotCommerce\CronScheduler\Model\ResourceModel\Job as JobResource;
-use DotCommerce\CronScheduler\Model\Source\Status;
 use Magento\Framework\Model\AbstractModel;
 
 class Job extends AbstractModel implements JobInterface
@@ -107,7 +106,7 @@ class Job extends AbstractModel implements JobInterface
 
     public function isEnabled(): bool
     {
-        return $this->getStatus() === Status::ENABLED->value;
+        return $this->getStatus() === self::STATUS_ENABLED;
     }
 
     public function getStatus(): int

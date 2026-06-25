@@ -12,7 +12,6 @@ namespace DotCommerce\CronScheduler\Plugin\Cron;
 use DotCommerce\CronScheduler\Api\Data\JobInterface;
 use DotCommerce\CronScheduler\Model\ResourceModel\Job\Collection;
 use DotCommerce\CronScheduler\Model\ResourceModel\Job\CollectionFactory;
-use DotCommerce\CronScheduler\Model\Source\Status;
 use Magento\Cron\Model\Config;
 use Psr\Log\LoggerInterface;
 
@@ -95,7 +94,7 @@ class ApplyJobOverrides
             $collection->addFieldToFilter(
                 [JobInterface::STATUS, JobInterface::MODIFIED_SCHEDULE],
                 [
-                    ['eq' => Status::DISABLED->value],
+                    ['eq' => JobInterface::STATUS_DISABLED],
                     ['notnull' => true],
                 ]
             );

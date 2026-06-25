@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace DotCommerce\CronScheduler\Model\Source;
 
+use DotCommerce\CronScheduler\Api\Data\JobInterface;
 use Magento\Framework\Data\OptionSourceInterface;
 
 /**
@@ -19,8 +20,8 @@ class StatusOptions implements OptionSourceInterface
     public function toOptionArray(): array
     {
         return [
-            ['value' => Status::ENABLED->value, 'label' => Status::ENABLED->label()],
-            ['value' => Status::DISABLED->value, 'label' => Status::DISABLED->label()],
+            ['value' => JobInterface::STATUS_ENABLED, 'label' => __('Enabled')],
+            ['value' => JobInterface::STATUS_DISABLED, 'label' => __('Disabled')],
         ];
     }
 }

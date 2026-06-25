@@ -14,7 +14,6 @@ use DotCommerce\CronScheduler\Api\JobRepositoryInterface;
 use DotCommerce\CronScheduler\Model\ResourceModel\Job\Collection;
 use DotCommerce\CronScheduler\Model\ResourceModel\Job\CollectionFactory;
 use DotCommerce\CronScheduler\Model\ResourceModel\Schedule\DeleteOrphanedSchedules;
-use DotCommerce\CronScheduler\Model\Source\Status;
 use Magento\Cron\Model\Config\Data as CronConfigData;
 
 /**
@@ -109,7 +108,7 @@ class JobSynchronizer
         $model->setInstance((string) $job['instance']);
         $model->setMethod((string) $job['method']);
         $model->setSchedule(isset($job['schedule']) ? (string) $job['schedule'] : null);
-        $model->setStatus(Status::ENABLED->value);
+        $model->setStatus(JobInterface::STATUS_ENABLED);
 
         $this->jobRepository->save($model);
     }

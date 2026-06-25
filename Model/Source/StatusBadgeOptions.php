@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace DotCommerce\CronScheduler\Model\Source;
 
+use DotCommerce\CronScheduler\Api\Data\JobInterface;
 use Magento\Framework\Data\OptionSourceInterface;
 use Magento\Framework\Escaper;
 
@@ -26,14 +27,14 @@ class StatusBadgeOptions implements OptionSourceInterface
     {
         return [
             [
-                'value' => Status::ENABLED->value,
+                'value' => JobInterface::STATUS_ENABLED,
                 'label' => '<span class="grid-severity-notice">'
-                    . $this->escaper->escapeHtml((string) Status::ENABLED->label()) . '</span>',
+                    . $this->escaper->escapeHtml((string) __('Enabled')) . '</span>',
             ],
             [
-                'value' => Status::DISABLED->value,
+                'value' => JobInterface::STATUS_DISABLED,
                 'label' => '<span class="grid-severity-critical">'
-                    . $this->escaper->escapeHtml((string) Status::DISABLED->label()) . '</span>',
+                    . $this->escaper->escapeHtml((string) __('Disabled')) . '</span>',
             ],
         ];
     }

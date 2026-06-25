@@ -12,7 +12,6 @@ namespace DotCommerce\CronScheduler\Controller\Adminhtml\Jobs;
 use DotCommerce\CronScheduler\Api\Data\JobInterface;
 use DotCommerce\CronScheduler\Api\JobRepositoryInterface;
 use DotCommerce\CronScheduler\Model\CronExpressionValidator;
-use DotCommerce\CronScheduler\Model\Source\Status;
 use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Controller\Result\Json;
@@ -65,11 +64,11 @@ class InlineEdit extends Action implements HttpPostActionInterface
                 $job->setModifiedSchedule($modified === '' ? null : $modified);
 
                 if (array_key_exists(JobInterface::STATUS, $item)) {
-                    $status = Status::tryFrom((int) $item[JobInterface::STATUS]);
-                    if ($status === null) {
+                    $status = (int) $item[JobInterface::STATUS];
+                    if (!in_array($status, [JobInterface::STATUS_ENABLED, JobInterface::STATUS_DISABLED], true)) {
                         throw new LocalizedException(__('Invalid status value supplied.'));
                     }
-                    $job->setStatus($status->value);
+                    $job->setStatus($status);
                 }
 
                 $this->jobRepository->save($job);

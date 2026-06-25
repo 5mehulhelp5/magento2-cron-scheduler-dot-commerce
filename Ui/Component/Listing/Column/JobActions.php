@@ -22,6 +22,8 @@ class JobActions extends Column
 {
     private const URL_PATH_RUN = 'dc_cronscheduler/jobs/run';
 
+    private const URL_PATH_SCHEDULE = 'dc_cronscheduler/jobs/schedule';
+
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
@@ -63,6 +65,22 @@ class JobActions extends Column
                     'title' => __('Run Job'),
                     'message' => __(
                         'Run "%1" now? It will execute immediately, regardless of its schedule.',
+                        $jobCode
+                    ),
+                ],
+            ];
+
+            $item[$fieldName]['schedule'] = [
+                'href' => $this->urlBuilder->getUrl(
+                    self::URL_PATH_SCHEDULE,
+                    [JobInterface::ENTITY_ID => $id]
+                ),
+                'label' => __('Schedule Now'),
+                'post' => true,
+                'confirm' => [
+                    'title' => __('Schedule Now'),
+                    'message' => __(
+                        'Queue "%1" to run on the next cron tick?',
                         $jobCode
                     ),
                 ],

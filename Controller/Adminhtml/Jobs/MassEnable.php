@@ -11,7 +11,6 @@ namespace DotCommerce\CronScheduler\Controller\Adminhtml\Jobs;
 
 use DotCommerce\CronScheduler\Api\Data\JobInterface;
 use DotCommerce\CronScheduler\Model\ResourceModel\Job\Collection;
-use DotCommerce\CronScheduler\Model\Source\Status;
 
 class MassEnable extends AbstractMassAction
 {
@@ -22,7 +21,7 @@ class MassEnable extends AbstractMassAction
         /** @var JobInterface $job */
         foreach ($collection as $job) {
             if (!$job->isEnabled()) {
-                $job->setStatus(Status::ENABLED->value);
+                $job->setStatus(JobInterface::STATUS_ENABLED);
                 $this->jobRepository->save($job);
                 $updated++;
             }

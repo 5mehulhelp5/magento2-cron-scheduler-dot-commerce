@@ -25,6 +25,12 @@ interface JobInterface
     public const MODIFIED_SCHEDULE  = 'modified_schedule';
     public const STATUS             = 'status';
 
+    /**
+     * Values stored in the `status` column.
+     */
+    public const STATUS_ENABLED     = 1;
+    public const STATUS_DISABLED    = 0;
+
     public function getEntityId(): ?int;
 
     public function setEntityId(?int $entityId): self;
