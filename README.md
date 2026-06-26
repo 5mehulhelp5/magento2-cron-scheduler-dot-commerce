@@ -1,4 +1,4 @@
-# DotCommerce Cron Scheduler for Magento 2
+# Cron Scheduler for Magento 2
 
 Take control of Magento's cron jobs from the admin panel — view every scheduled
 job, reschedule or disable any of them without touching code, monitor execution
@@ -59,8 +59,8 @@ and removed jobs are cleaned up (along with their orphaned schedule rows).
 
 | Requirement | Version |
 | ----------- | ------- |
-| Magento     | 2.4.4 or higher (forward‑compatible through 2.4.8) |
-| PHP         | 8.1, 8.2, 8.3, or 8.4 |
+| Magento     | 2.4.4 or higher (forward‑compatible through 2.4.9) |
+| PHP         | 8.1, 8.2, 8.3, 8.4, or 8.5 |
 
 ---
 
