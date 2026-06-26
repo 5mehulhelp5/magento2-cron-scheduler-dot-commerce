@@ -27,4 +27,15 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="dcCronList" xsi:type="object">DotCommerce\CronScheduler\Console\Command\ListCommand</item>
+                <item name="dcCronEnable" xsi:type="object">DotCommerce\CronScheduler\Console\Command\EnableCommand</item>
+                <item name="dcCronDisable" xsi:type="object">DotCommerce\CronScheduler\Console\Command\DisableCommand</item>
+                <item name="dcCronRun" xsi:type="object">DotCommerce\CronScheduler\Console\Command\RunCommand</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
