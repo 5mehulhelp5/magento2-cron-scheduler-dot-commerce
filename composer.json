@@ -1,6 +1,6 @@
 {
     "name": "dot-commerce/magento2-cron-scheduler",
-    "description": "Cron Scheduler for Magento 2: Take control of Magento 2 cron jobs from the Admin Panel",
+    "description": "Cron Scheduler for Magento 2: Manage cron jobs from the Admin Panel",
     "type": "magento2-module",
     "license": "MIT",
     "authors": [

@@ -109,6 +109,15 @@ A lightweight heartbeat cron (every minute) reconciles the job registry with
 Magento's configuration: new jobs are added, changed schedules are refreshed,
 and removed jobs are cleaned up (along with their orphaned schedule rows).
 
+### Command-line interface
+Manage cron jobs from the console — ideal for deployment scripts and headless
+servers, with the same behaviour as the admin UI.
+
+- `dc:cron:list` — list managed jobs (with `--status` and `--group` filters).
+- `dc:cron:enable <job_code>` — enable a job.
+- `dc:cron:disable <job_code>` — disable a job.
+- `dc:cron:run <job_code>` — force-run a job now, with time/memory profiling.
+
 ---
 
 ## Usage
@@ -133,6 +142,16 @@ Use the row actions on **Cron Jobs List**:
 
 - **Run Job** — executes the job right now and reports how long it took.
 - **Schedule Now** — queues the job to run on the next cron tick.
+
+### Managing jobs from the command line
+
+```bash
+bin/magento dc:cron:list                       # list all managed jobs
+bin/magento dc:cron:list --status=disabled     # filter by status
+bin/magento dc:cron:disable catalog_product_alert
+bin/magento dc:cron:enable catalog_product_alert
+bin/magento dc:cron:run catalog_product_alert  # force-run now, with profiling
+```
 
 ---
 
